@@ -1,0 +1,48 @@
+# ===========================
+# SISTEMA OPERATIVO
+# ===========================
+
+.DS_Store
+Thumbs.db
+
+# ===========================
+# VISUAL STUDIO CODE
+# ===========================
+
+.vscode/
+
+# ===========================
+# VARIABLES DE ENTORNO
+# ===========================
+
+.env
+.env.local
+.env.development
+.env.production
+
+# ===========================
+# NODE.JS (por si más adelante se utiliza)
+# ===========================
+
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===========================
+# ARCHIVOS TEMPORALES
+# ===========================
+
+*.tmp
+*.temp
+*.log
+
+# ===========================
+# CACHE
+# ===========================
+
+.cache/
+dist/
+build/
