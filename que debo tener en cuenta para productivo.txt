@@ -1,0 +1,76 @@
+Lo que ya lograste (armar el diseño, entender la estrategia de ventas, ver la oportunidad de mercado en Ypané y estructurar la idea de negocio) 
+es la parte más difícil. La parte técnica de servidores y bases de datos es simplemente aprender a tocar 3 o 4 botones por primera vez.
+
+Vamos a desmitificar esto con dos analogías muy sencillas para que le pierdas el miedo:
+
+💡 ¿Qué son realmente Supabase y Vercel?
+Supabase es como una planilla de Excel gigante en la nube:
+En vez de guardar los precios y fotos en tu computadora, los guardás en una planilla en internet. Tu página web lee esa planilla y 
+muestra las hamburguesas.
+
+Vercel es como una carpeta pública en internet:
+En vez de tener tu archivo tioslandingpage.html guardado en tu carpeta de Descargas, lo arrastrás a Vercel. 
+Vercel te da un enlace (link) y listo: cualquier persona en el mundo que toque ese link puede ver tu página desde su celular.
+
+🚀 Paso a Paso: Preparando todo para el 01/08
+Para que no te compliques con código técnico raro, te dejé todo preparado para que sea casi un trabajo de copiar, pegar y hacer clics.
+
+Paso 1: Crear tu planilla en Supabase (Base de datos)
+Entrá a Supabase.com y creá una cuenta gratis.
+
+Hacé clic en "New Project" (Nuevo Proyecto), ponele de nombre tios-food-garden y creá una contraseña.
+
+En el menú de la izquierda, buscá el ícono del SQL Editor (parece un par de tablas o un símbolo de consola).
+
+Hacé clic en "New Query", pegá este código tal cual está abajo y hacé clic en el botón verde "Run":
+
+SQL
+-- 1. Creamos el local de Tío's Food Garden
+CREATE TABLE restaurants (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(100) NOT NULL,
+    slug VARCHAR(100) UNIQUE NOT NULL,
+    phone_whatsapp VARCHAR(20) NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+-- 2. Creamos la tabla de productos
+CREATE TABLE products (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    restaurant_id UUID REFERENCES restaurants(id) ON DELETE CASCADE,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(12, 0) NOT NULL,
+    image_url TEXT,
+    is_available BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 3. Insertamos a Tío's y guardamos su ID
+INSERT INTO restaurants (id, name, slug, phone_whatsapp) 
+VALUES ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Tío''s Food Garden', 'tios-food-garden', '595981123654');
+
+-- 4. Cargamos tus 6 fotos iniciales a la base de datos
+INSERT INTO products (restaurant_id, name, description, price, image_url, is_available) VALUES
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Burger Doble Cheddar & Bacon', 'Doble medalla de carne, cheddar y panceta', 35000, 'imgHamb1.jpeg', true),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Tío''s Burger Tradicional', 'Carne artesanal, huevo, queso y tomate', 30000, 'imgHamb2.jpeg', true),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Lomito Árabe Especial', 'Pan pita, carne marinada y salsa de ajo', 28000, 'imgLArab.jpeg', true),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Aperol Spritz', 'Aperol, espumante y naranja fresca', 30000, 'imgAperol.jpeg', true),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Margarita de la Casa', 'Tequila, licor de naranja y jugo de lima', 32000, 'imgMargarita.jpeg', true),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Caipiriña Clásica', 'Cachaza, limon verde y hielo picado', 25000, 'imgCaipi.jpeg', true);
+¡Listo! Con esos clics ya tenés tu base de datos profesional armada en la nube con los productos de Tío's cargados.
+
+Paso 2: Subir tu página a Internet con Vercel
+Entrá a Vercel.com y registrate gratis (podés usar tu cuenta de Google).
+
+En tu pantalla principal vas a ver una opción que dice "Deploy" o un recuadro para arrastrar archivos.
+
+Arrastrá la carpeta de tu computadora (pruebasirgp) y soltala ahí.
+
+En 10 segundos, Vercel va a procesar todo y te va a dar un link público del estilo: [https://pruebasirgp.vercel.app](https://pruebasirgp.vercel.app).
+
+¡Ese link ya lo podés abrir desde cualquier celular, compartir por WhatsApp o convertirlo en un código QR para poner en las mesas!
+
+Vas por un camino excelente y lo que estás construyendo tiene un valor comercial gigante.
+
+¿Querés que hagamos primero el intento de crear la cuenta en Supabase y ejecutar el script para ir paso a paso juntos?

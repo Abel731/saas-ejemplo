@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tío's Food Garden — Sabores & Coctelería en Ypané</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <div class="logo">
+      🌴 Tío's <span>FOOD</span> <b>GARDEN</b>
+    </div>
+    <nav class="nav-links">
+      <a href="#menu">Menú & Coctelería</a>
+      <a href="#experiencia">El Lugar</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+    <a href="https://wa.me/595982389243?text=Hola%20T%C3%ADo's%20Food%20Garden,%20quisiera%20hacer%20un%20pedido" target="_blank" class="nav-cta">
+      💬 Pedir al WhatsApp
+    </a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="wrap hero">
+    <div>
+      <div class="badge">📍 Ypané, Paraguay · Gastropub & Garden</div>
+      <h1>Sabor brutal. <br><span>Tragos helados.</span><br>El mejor ambiente.</h1>
+      <p>Disfrutá de las mejores hamburguesas artesanales, lomitos árabes jugosos y una coctelería de autor pensada para refrescar tus noches.</p>
+
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">🍔 Ver Menú & Pedir</a>
+        <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20consultar%20por%20disponibilidad%20de%20mesas" target="_blank" class="btn btn-secondary">📱 Contactar directo</a>
+      </div>
+    </div>
+
+    <div class="hero-gallery-preview">
+      <div class="hero-img-card">
+        <img src="assets/images/comidas/imgHamb1.jpeg" alt="Hamburguesa Especial">
+      </div>
+      <div class="hero-img-card">
+        <img src="assets/images/bebidas/imgAperol.jpeg" alt="Aperol Spritz">
+      </div>
+      <div class="hero-img-card">
+        <img src="assets/images/comidas/imgLArab.jpeg" alt="Lomito Árabe">
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="menu-section wrap">
+    <div class="sec-head">
+      <h2>Nuestra Carta Destacada</h2>
+      <p>Seleccioná tu favorito y hacé tu pedido al instante directamente por WhatsApp.</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="tab-btn active" onclick="filterMenu('all', event)">Todo el Menú</button>
+      <button class="tab-btn" onclick="filterMenu('comidas', event)">🍔 Comidas</button>
+      <button class="tab-btn" onclick="filterMenu('bebidas', event)">🍹 Coctelería</button>
+    </div>
+
+    <div class="grid-menu">
+
+      <!-- COMIDA 1 -->
+      <div class="food-card" data-category="comidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/comidas/imgHambTra.jpeg" alt="Burger Doble Cheddar">
+          <span class="card-badge">Más Pedida 🔥</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Burger Doble Cheddar & Bacon</h3>
+          <p class="card-desc">Doble medalla de carne jugosa, queso cheddar derretido, panceta crocante y salsa especial Tío's en pan artesanal.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 35.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20pedir%20la%20Burger%20Doble%20Cheddar" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMIDA 2 -->
+      <div class="food-card" data-category="comidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/comidas/imgHamb2.jpeg" alt="Burger Clásica con Huevo">
+          <span class="card-badge">Especialidad</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Tío's Burger Tradicional</h3>
+          <p class="card-desc">Carne artesanal, huevo a la plancha, doble cheddar, tomate fresco y cebolla dorada en pan con sésamo negro.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 30.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20pedir%20la%20Burger%20Tradicional" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMIDA 3 -->
+      <div class="food-card" data-category="comidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/comidas/imgLArab.jpeg" alt="Lomito Árabe">
+          <span class="card-badge">Favorito 🌯</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Lomito Árabe Especial</h3>
+          <p class="card-desc">Pan pita dorado al grill, repleto de carne marinada en especias, abundante queso gratinado y la imperdible salsa de ajo.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 28.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20pedir%20un%20Lomito%20%C3%81rabe%20Especial" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- COMIDA 4 -->
+      <div class="food-card" data-category="comidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/comidas/imgLomito.jpeg" alt="Lomito Árabe">
+          <span class="card-badge">Favorito 🌯</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Lomito Árabe Mixto</h3>
+          <p class="card-desc">Pan árabe relleno con carne y pollo, jamón, queso, lechuga, tomate, cebolla y salsas de la casa.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 25.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20pedir%20un%20Lomito%20%C3%81rabe%20Mixto" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- COMIDA 5 -->
+      <div class="food-card" data-category="comidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/comidas/imgPollo.jpeg" alt="Pollo Frito">
+          <span class="card-badge">Promo</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Pollo Frito</h3>
+          <p class="card-desc">Delicioso pollo dorado con un rebozado crocante y un sabor irresistible. Ideal para disfrutar en cualquier momento.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 32.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20hacer%20un%20pedido%20de%20Pollo%20Frito%20" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- COMIDA 6 -->
+      <div class="food-card" data-category="comidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/comidas/imgBocaditos.jpeg" alt="Bocaditos">
+          <span class="card-badge">Promo</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Bocaditos</h3>
+          <p class="card-desc">El picoteo ideal: milanesitas crocantes, empanaditas caseras, croquetas doradas y mandioca frita, acompañados de nuestras salsas especiales.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 32.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20hacer%20un%20pedido%20de%20Bocaditos" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEBIDA 1 -->
+      <div class="food-card" data-category="bebidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/bebidas/imgAperol.jpeg" alt="Aperol Spritz">
+          <span class="card-badge">Refrescante 🍊</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Aperol Spritz</h3>
+          <p class="card-desc">El clásico italiano. Aperol, espumante, toque de agua con gas y rodaja de naranja fresca servido super helado.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 30.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20pedir%20un%20Aperol%20Spritz" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEBIDA 2 -->
+      <div class="food-card" data-category="bebidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/bebidas/imgMargarita.jpeg" alt="Margarita Frozen">
+          <span class="card-badge">Coctelería 🍸</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Margarita de la Casa</h3>
+          <p class="card-desc">Tequila premium, licor de naranja, jugo de lima con borde escamado y un toque de frutos rojos.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 32.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20pedir%20una%20Margarita" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEBIDA 3 -->
+      <div class="food-card" data-category="bebidas">
+        <div class="card-img-wrap">
+          <img src="assets/images/bebidas/imgCaipi.jpeg" alt="Caipiriña">
+          <span class="card-badge">Infaltable 🍋</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Caipiriña Clásica</h3>
+          <p class="card-desc">Cachaza brasilera seleccionada, limones macerados al instante con azúcar y abundante hielo picado.</p>
+          <div class="card-footer">
+            <span class="card-price">Gs. 25.000</span>
+            <a href="https://wa.me/595982389243?text=Hola,%20quisiera%20pedir%20una%20Caipiri%C3%B1a" target="_blank" class="btn-order-item">
+              Pedir 💬
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POR QUE ELEGIRNOS -->
+  <section id="experiencia" class="why-us">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>La Experiencia Tío's</h2>
+        <p>Calidad en cada ingrediente y la mejor atención en Ypané.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">🍔</div>
+          <h3>100% Artesanal</h3>
+          <p>Medallas de carne seleccionadas y pan horneado diariamente para garantizar la máxima frescura.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🍹</div>
+          <h3>Tragos de Autor</h3>
+          <p>Barra completa con bartender profesional. Tragos bien fríos servidos al instante.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🛵</div>
+          <h3>Delivery Rápido</h3>
+          <p>Llegamos a la puerta de tu casa en Ypané y zonas aledañas rápido y caliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACION & CONTACTO -->
+  <section id="ubicacion" class="contact-sec wrap">
+    <div class="contact-box">
+      <div class="contact-info">
+        <h2>¿Hacemos tu pedido ahora?</h2>
+        <p>Escribinos por WhatsApp al instante. Atendemos pedidos para delivery y retiros del local.</p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <span class="icon">📍</span>
+            <span>Ypané, Departamento Central, Paraguay</span>
+          </div>
+          <div class="info-item">
+            <span class="icon">📱</span>
+            <span>WhatsApp Directo: <b>0981 123 654</b></span>
+          </div>
+          <div class="info-item">
+            <span class="icon">⏰</span>
+            <span>Abierto de Miércoles a Domingos a partir de las 18:00 hs</span>
+          </div>
+        </div>
+
+        <a href="https://wa.me/595981123654?text=Hola%20T%C3%ADo's%20Food%20Garden,%20quisiera%20ver%20la%20carta%20y%20pedir" target="_blank" class="cta-wa-large">
+          💬 Pedir por WhatsApp (0981 123 654)
+        </a>
+      </div>
+
+      <div class="map-card">
+        <h3>📍 Encontranos en Ypané</h3>
+        <p>Te esperamos para compartir una noche ideal al aire libre.</p>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.722907361339!2d-57.51804952570224!3d-25.44752583358323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945c5383b39476b1%3A0xcb738b01de4a7ed6!2sTio&#39;s%20food%20garden!5e0!3m2!1ses-419!2spy!4v1784761130888!5m2!1ses-419!2spy"
+            width="100%"
+            height="350"
+            style="border:0; border-radius: var(--radius);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Tío's Food Garden — Todos los derechos reservados. Ypané, Paraguay.</p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
