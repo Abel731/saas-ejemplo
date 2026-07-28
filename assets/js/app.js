@@ -1,10 +1,5 @@
-// assets/js/app.js
-// Responsabilidad: orquestar. Pedir productos → crear tarjetas → mostrarlas.
+// assets/js/app.js — landing pública (index.html)
 
-/**
- * Busca el contenedor, lo vacía, y mete una tarjeta por cada producto.
- * @param {Array} products
- */
 function renderProducts(products) {
   const container = document.getElementById('products-container');
 
@@ -16,8 +11,6 @@ function renderProducts(products) {
   container.innerHTML = products.map(createProductCard).join('');
 }
 
-// Filtro de categorías — sigue leyendo data-category, que ahora viene
-// de product.category en vez de estar escrito a mano en el HTML.
 function filterMenu(category, event) {
   const cards = document.querySelectorAll('.food-card');
   const buttons = document.querySelectorAll('.tab-btn');
@@ -35,7 +28,7 @@ function filterMenu(category, event) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const products = await getProducts(RESTAURANT_ID);
-  console.log('Productos recibidos:', products);
+  // La landing solo muestra productos marcados como disponibles
+  const products = await getProducts(RESTAURANT_ID, { onlyAvailable: true });
   renderProducts(products);
 });
