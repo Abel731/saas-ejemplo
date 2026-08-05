@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión — Panel Tío's Food Garden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+  :root {
+    --bg: #0C1014;
+    --bg-card: #141A21;
+    --border: #232D39;
+    --gold: #F59E0B;
+    --text: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --radius: 10px;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .login-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .login-logo {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+  .login-logo span { color: var(--gold); }
+
+  .login-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 28px;
+  }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px;
+  }
+  .form-group input {
+    width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+    padding: 11px 12px; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem;
+  }
+  .form-group input:focus { outline: none; border-color: var(--gold); }
+
+  .btn-login {
+    width: 100%;
+    background: var(--gold); color: #000; font-family: var(--font-heading);
+    font-weight: 700; font-size: 0.95rem; padding: 12px; border-radius: 6px;
+    border: none; cursor: pointer; margin-top: 8px; transition: all .2s;
+  }
+  .btn-login:hover { background: #FBBF24; }
+  .btn-login:disabled { opacity: 0.6; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="login-card">
+  <div class="login-logo">Panel <span>SaaS</span></div>
+  <p class="login-sub">Tío's Food Garden — acceso administrativo</p>
+
+  <form id="login-form">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="login-email" required placeholder="tu@email.com" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" id="login-password" required placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button type="submit" class="btn-login">Iniciar sesión</button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/services/supabaseService.js"></script>
+<script src="assets/js/services/authService.js"></script>
+
+<script>
+  document.getElementById('login-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const btn = event.target.querySelector('.btn-login');
+    btn.disabled = true;
+    btn.textContent = 'Ingresando...';
+
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+
+    const result = await login(email, password);
+
+    if (!result.success) {
+      btn.disabled = false;
+      btn.textContent = 'Iniciar sesión';
+
+      Swal.fire({
+        title: 'No se pudo iniciar sesión',
+        text: 'Revisá el email y la contraseña.',
+        icon: 'error',
+        background: '#141A21',
+        color: '#F3F4F6',
+        confirmButtonColor: '#F59E0B',
+      });
+      return;
+    }
+
+    window.location.href = 'admin.html';
+  });
+
+  // Si ya hay una sesión activa, no tiene sentido mostrar el login de nuevo
+  (async () => {
+    const session = await getSession();
+    if (session) window.location.href = 'admin.html';
+  })();
+</script>
+
+</body>
+</html>

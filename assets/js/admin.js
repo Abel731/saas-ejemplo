@@ -6,6 +6,10 @@
 let productsData = [];
 
 async function loadDashboard() {
+  // Si no hay sesión activa, requireAuth() ya redirige a login.html y no seguimos
+  const session = await requireAuth();
+  if (!session) return;
+
   // El admin necesita ver TODO, disponible o no, por eso no pasamos onlyAvailable.
   productsData = await getProducts(RESTAURANT_ID);
   updateMetrics();

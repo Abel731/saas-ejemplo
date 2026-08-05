@@ -155,9 +155,14 @@
 <header>
   <div class="wrap header-inner">
     <div class="logo-admin">Panel <span>SaaS</span></div>
-    <button class="btn-qr-header" onclick="openQrModal()">
-      📱 Generar QR
-    </button>
+    <div style="display: flex; gap: 10px;">
+      <button class="btn-qr-header" onclick="openQrModal()">
+        📱 Generar QR
+      </button>
+      <button class="btn-qr-header" onclick="handleLogout()" style="border-color: var(--red); color: var(--red);">
+        🚪 Salir
+      </button>
+    </div>
   </div>
 </header>
 
@@ -248,10 +253,17 @@
 <!-- Nuestros archivos, en orden de dependencia -->
 <script src="assets/js/config.js"></script>
 <script src="assets/js/services/supabaseService.js"></script>
+<script src="assets/js/services/authService.js"></script>
 <script src="assets/js/components/productCard.js"></script>
 <script src="assets/js/admin.js"></script>
 
 <script>
+  // ---------- SESIÓN ----------
+  async function handleLogout() {
+    await logout();
+    window.location.href = 'login.html';
+  }
+
   // ---------- GESTIÓN DEL CÓDIGO QR (sin cambios, no depende de Supabase) ----------
   let qrGenerated = false;
   const RESTAURANT_MENU_URL = 'https://tiosfood.mymenusaas.com';
